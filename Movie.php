@@ -15,6 +15,8 @@ class Movie
     public $cast;
     public $genre;
     public $score;
+    public $rating;
+    public $ratingAdvise;
     public $mpaRatingTable = [
         [
             'ratingCode' => 'G',
@@ -49,8 +51,15 @@ class Movie
         $this->year = $year;
     }
 
+    public function getMeaning()
+    {
+        foreach ($this -> mpaRatingTable as $code) {
+            if ($code['ratingCode'] = $this->rating) {
+                $this->ratingAdvise = $code['meaning'];
+            }
+        }
+    }
 }
-
 // movie-1
 $movie = new Movie('Starship Troopers', 1997);
 $movie->title = 'Starship Troopers';
@@ -87,7 +96,6 @@ $movie2->genre = [
 ];
 $movie2->score = 7.1;
 $movie2->rating = 'PG-13';
-
 ?>
 
 <!-- print -->
@@ -97,6 +105,15 @@ $movie2->rating = 'PG-13';
             <li>Year: <?= $movie->year ?></li>
             <li>Score: <?= $movie->score ?></li>
             <li>Rating: <?= $movie->rating ?></li>
+            <li>Parental Advise: <?= $movie->ratingAdvise ?></li>
+        </ul>
+    </li>
+    <li><?= $movie2->title ?>
+    <ul>
+        <li>Year: <?= $movie2->year ?></li>
+        <li>Score: <?= $movie2->score ?></li>
+        <li>Rating: <?= $movie2->rating ?></li>
+        <li>Parental Advise: <?= $movie2->ratingAdvise ?></li>
         </ul>
     </li>
 </ul>
