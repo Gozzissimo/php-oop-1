@@ -7,7 +7,8 @@ metodi d’istanza che abbiamo visto stamattina e create un file Movie.php in cu
 - vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà -->
 
 <?php
-class Movie {
+class Movie
+{
     public $title;
     public $year;
     public $director;
@@ -48,12 +49,6 @@ class Movie {
         $this->year = $year;
     }
 
-    // public function ageWarning($yearRating)
-    // {
-    //     if ( ) {
-    //         # code...
-    //     }
-    // }
 }
 
 // movie-1
@@ -74,6 +69,7 @@ $movie->genre = [
 $movie->score = 7.2;
 $movie->rating = 'R';
 
+
 // movie-2
 $movie2 = new Movie('Tremors', 1990);
 $movie2->title = 'Tremors';
@@ -92,8 +88,15 @@ $movie2->genre = [
 $movie2->score = 7.1;
 $movie2->rating = 'PG-13';
 
-var_dump($movie);
-var_dump($movie2);
+?>
 
-
-
+<!-- print -->
+<ul>
+    <li><?= $movie->title ?>
+        <ul>
+            <li>Year: <?= $movie->year ?></li>
+            <li>Score: <?= $movie->score ?></li>
+            <li>Rating: <?= $movie->rating ?></li>
+        </ul>
+    </li>
+</ul>
